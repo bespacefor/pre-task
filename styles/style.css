@@ -191,81 +191,152 @@ body {
     cursor: pointer;
 }
 
-.portfolio__container > div:hover {
-    box-shadow: 0 0 10px rgba(0,0,0,0.5);
-}
-
 .portfolio__container a {
     color: white;
     text-decoration: none;
 }
 
-.portfolio__container_item1 {
+/* FLIPPED CARDS */
+.card {
+    perspective: 150rem;
+    position: relative;
+}
+
+.card__side {
+    height: 100%;
+    width: 100%;
+    transition: all 0.8s ease;
+    position: absolute;
+    top: 0;
+    left: 0;
+    margin: auto;
+    -webkit-backface-visibility: hidden;
+        backface-visibility: hidden;
+    border-radius: 3px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.5);
+}
+
+.card__side--back {
+    transform: rotateY(180deg); 
+    background-color: blue;
+}
+
+.card:hover .card__side--front {
+    transform: rotateY(-180deg);
+}
+
+.card:hover .card__side--back {
+    transform: rotateY(0deg);
+}
+
+.card__cta {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 90%;
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+    align-items: start;
+}
+
+.card__cont {
+    height: 100%;
+}
+
+.card__cont--pic1 {
     background: url(../assets/img/portfolio1.png) no-repeat center;
+    background-size: cover;
 }
 
-.portfolio__container_item2 {
+.card__cont--pic2 {
     background: url(../assets/img/portfolio2.png) no-repeat center;
+    background-size: cover;
 }
 
-.portfolio__container_item3 {
+.card__cont--pic3 {
     background: url(../assets/img/portfolio3.png) no-repeat center;
+    background-size: cover;
 }
 
-.portfolio__container_item4 {
+.card__cont--pic4 {
     background: url(../assets/img/portfolio4.png) no-repeat center;
+    background-size: cover;
 }
 
-.portfolio__container_item5 {
+.card__cont--pic5 {
     background: url(../assets/img/portfolio5.png) no-repeat center;
+    background-size: cover;
 }
 
-.portfolio__container_item6 {
+.card__cont--pic6 {
     background: url(../assets/img/portfolio6.png) no-repeat center;
+    background-size: cover;
 }
 
-.portfolio__container_item7 {
+.card__cont--pic7 {
     background: url(../assets/img/portfolio7.png) no-repeat center;
+    background-size: cover;
 }
 
-.portfolio__container_item8 {
+.card__cont--pic8 {
     background: url(../assets/img/portfolio8.png) no-repeat center;
+    background-size: cover;
 }
 
-.portfolio__container_item9 {
+.card__cont--pic9 {
     background: url(../assets/img/portfolio9.png) no-repeat center;
+    background-size: cover;
 }
 
-.portfolio__container_item10 {
+.card__cont--pic10 {
     background: url(../assets/img/portfolio10.png) no-repeat center;
+    background-size: cover;
 }
 
-.portfolio__container_item11 {
+.card__cont--pic11 {
     background: url(../assets/img/portfolio11.png) no-repeat center;
+    background-size: cover;
 }
 
-.portfolio__container_item12 {
+.card__cont--pic12 {
     background: url(../assets/img/portfolio12.png) no-repeat center;
+    background-size: cover;
 }
 
-.portfolio__container_item13 {
+.card__cont--pic13 {
     background: url(../assets/img/portfolio13.png) no-repeat center;
+    background-size: cover;
 }
 
-.portfolio__container_item14 {
+.card__cont--pic14 {
     background: url(../assets/img/portfolio14.png) no-repeat center;
+    background-size: cover;
 }
 
-.portfolio__container_item15 {
+.card__cont--pic15 {
     background: url(../assets/img/portfolio15.png) no-repeat center;
+    background-size: cover;
 }
 
-.portfolio__container_item16 {
+.card__cont--pic16 {
     background: url(../assets/img/portfolio16.png) no-repeat center;
+    background-size: cover;
 }
 
-.portfolio__container_item17 {
+.card__cont--pic17 {
     background: url(../assets/img/portfolio17.png) no-repeat center;
+    background-size: cover;
+}
+
+.card__cta > a[data-tooltip]::after {
+    width: 120px;
+    font-size: 1rem;
+}
+
+.card__cta > a[data-tooltip]:hover::after {
+    top: 1rem;
 }
 
 /* FEEDBACK BLOCK */
