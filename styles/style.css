@@ -1,0 +1,418 @@
+/* COMMON STYLES */
+body {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: Orbitron, Arial, Helvetica, sans-serif;
+    font-size: 20px;
+    background: linear-gradient(135deg, #D0D3D4 0%, #707B7C 48%,  #424949 100%);
+    user-select: none;
+}
+
+.header_visually-hidden {
+    position: absolute;
+    clip: rect(0 0 0 0);
+    width: 1px;
+    height: 1px;
+    margin: -1px;
+}
+
+.content__wrapper {
+    margin: 0 3rem;
+}
+
+.content__title {
+    font-size: 3rem;
+    font-weight: bold;
+}
+
+.content__container {
+    font-family: Roboto, sans-serif;
+    font-size: 1.3rem;
+    display: grid;
+    grid-template-rows: repeat(1fr, 6);
+    grid-template-columns: 1fr;
+    grid-gap: 2vw;
+}
+
+/* BLOCK INFO */
+.content__container_item1 {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+.item1__info_photo {
+    background-color: blue;
+}
+
+.item1__info_img {
+    border-radius: 50%;
+    height: 250px;
+    width: auto;
+    padding: 10px 10px 10px;
+    cursor: none;
+}
+
+.item1__info_contact {
+    display: flex;
+    flex-direction: column;
+    width: 50%;
+    margin: 2rem;
+    padding: 0 1.5rem;
+    border: 1px solid white;
+    border-radius: 1rem;
+    box-shadow: 0 0 10px rgba(0,0,0,0.5);
+}
+
+.contact__title {
+    font-family: Orbitron;
+}
+
+.contact__info_name {
+    color: blue;
+    font-weight: bold;
+}
+
+.contact__info_item > a {
+    color: black;
+    text-decoration: none;
+}
+
+.features__info_title, .features__info_item {
+    font-family: Orbitron;
+    color: white;
+}
+
+.features__info_item {
+    font-size: 1rem;
+}
+
+/* TOOLTIP STYLES */
+[data-tooltip] {
+    position: relative;
+}
+
+[data-tooltip]::after {
+    content: attr(data-tooltip);
+    position: absolute;
+    width: 350px;
+    left: 1.5rem;
+    top: 0;
+    background: chartreuse;
+    color: #fff;
+    padding: 0.5rem;
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
+    pointer-events: none;
+    opacity: 0;
+    transition: 0.5s;
+    z-index: 1;
+}
+
+[data-tooltip]:hover::after {
+    opacity: 1;
+    top: 2rem;
+}
+
+/* BLOCK RESUME */
+.content__container_item2 {
+    padding: 0 1.5rem;
+}
+
+.resume__title, .skills__title, .studies__title, .studies__table_date, .studies__table_item > a, .portfolio__title, .feedback__title {
+    font-family: Orbitron;
+    color: white;
+}
+
+.resume__message {
+    text-align: left;
+}
+
+/* BLOCK SKILLS */
+.content__container_item3 {
+    border: 1px solid white;
+    border-radius: 1rem;
+    box-shadow: 0 0 10px rgba(0,0,0,0.5);
+}
+
+.content__container_item3, .content__container_item4, .content__container_item5, .content__container_item6 {
+    padding: 0 1.5rem 1.5rem 1.5rem;
+}
+
+.skills__table {
+    display: grid;
+    grid-template-rows: 1fr 1fr 1fr;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-gap: 2vw;
+    user-select: none;
+}
+
+.skills__table__item {
+    padding: 0.5rem;
+    text-align: center;
+    background: blue;
+    color: chartreuse;
+    box-shadow: 0 0 10px rgba(0,0,0,0.5);
+    transition: 0.5s ease-out;
+}
+
+.skills__table__item:hover {
+    cursor: pointer;
+    color: white;
+    background: chartreuse;
+}
+
+/* STUDIES BLOCK */
+.studies__title {
+    text-decoration: underline chartreuse;
+}
+
+.studies__table {
+    display: grid;
+    grid-template-rows: 1fr 1fr;
+    grid-template-columns: 1fr 4fr;
+    grid-gap: 2vw;
+}
+
+/* PORTFOLIO BLOCK */
+.content__container_item5 {
+    border: 1px solid chartreuse;
+}
+
+.portfolio__container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    grid-gap: 2vw;
+}
+
+.portfolio__container > div {
+    height: 100px;
+    background-size: cover;
+    cursor: pointer;
+}
+
+.portfolio__container a {
+    color: white;
+    text-decoration: none;
+}
+
+/* FLIPPED CARDS */
+.card {
+    perspective: 150rem;
+    position: relative;
+}
+
+.card__side {
+    height: 100%;
+    width: 100%;
+    transition: all 0.8s ease;
+    position: absolute;
+    top: 0;
+    left: 0;
+    margin: auto;
+    -webkit-backface-visibility: hidden;
+        backface-visibility: hidden;
+    border-radius: 3px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.5);
+}
+
+.card__side--back {
+    transform: rotateY(180deg); 
+    background-color: blue;
+}
+
+.card:hover .card__side--front {
+    transform: rotateY(-180deg);
+}
+
+.card:hover .card__side--back {
+    transform: rotateY(0deg);
+}
+
+.card__cta {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 90%;
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+    align-items: start;
+}
+
+.card__cont {
+    height: 100%;
+}
+
+.card__cont--pic1 {
+    background: url(../assets/img/portfolio1.png) no-repeat center;
+    background-size: cover;
+}
+
+.card__cont--pic2 {
+    background: url(../assets/img/portfolio2.png) no-repeat center;
+    background-size: cover;
+}
+
+.card__cont--pic3 {
+    background: url(../assets/img/portfolio3.png) no-repeat center;
+    background-size: cover;
+}
+
+.card__cont--pic4 {
+    background: url(../assets/img/portfolio4.png) no-repeat center;
+    background-size: cover;
+}
+
+.card__cont--pic5 {
+    background: url(../assets/img/portfolio5.png) no-repeat center;
+    background-size: cover;
+}
+
+.card__cont--pic6 {
+    background: url(../assets/img/portfolio6.png) no-repeat center;
+    background-size: cover;
+}
+
+.card__cont--pic7 {
+    background: url(../assets/img/portfolio7.png) no-repeat center;
+    background-size: cover;
+}
+
+.card__cont--pic8 {
+    background: url(../assets/img/portfolio8.png) no-repeat center;
+    background-size: cover;
+}
+
+.card__cont--pic9 {
+    background: url(../assets/img/portfolio9.png) no-repeat center;
+    background-size: cover;
+}
+
+.card__cont--pic10 {
+    background: url(../assets/img/portfolio10.png) no-repeat center;
+    background-size: cover;
+}
+
+.card__cont--pic11 {
+    background: url(../assets/img/portfolio11.png) no-repeat center;
+    background-size: cover;
+}
+
+.card__cont--pic12 {
+    background: url(../assets/img/portfolio12.png) no-repeat center;
+    background-size: cover;
+}
+
+.card__cont--pic13 {
+    background: url(../assets/img/portfolio13.png) no-repeat center;
+    background-size: cover;
+}
+
+.card__cont--pic14 {
+    background: url(../assets/img/portfolio14.png) no-repeat center;
+    background-size: cover;
+}
+
+.card__cont--pic15 {
+    background: url(../assets/img/portfolio15.png) no-repeat center;
+    background-size: cover;
+}
+
+.card__cont--pic16 {
+    background: url(../assets/img/portfolio16.png) no-repeat center;
+    background-size: cover;
+}
+
+.card__cont--pic17 {
+    background: url(../assets/img/portfolio17.png) no-repeat center;
+    background-size: cover;
+}
+
+.card__cta > a[data-tooltip]::after {
+    width: 120px;
+    font-size: 1rem;
+}
+
+.card__cta > a[data-tooltip]:hover::after {
+    top: 1rem;
+}
+
+/* FEEDBACK BLOCK */
+.feedback__form {
+    display: flex;
+    flex-direction: column;
+}
+
+.feedback__form_message {
+    font-family: Roboto;
+    font-size: 1.3rem;
+    width: 99%;
+    cursor: pointer;
+}
+
+.feedback__form_message:focus {
+    outline: none;
+    box-shadow: 0 0 10px rgba(0,0,0,0.5);
+}
+
+.feedback__form_box {
+    display: grid;
+    grid-template-columns: 5fr 1fr 1fr;
+    grid-template-rows: 1fr;
+    grid-gap: 2vw;
+}
+
+.feedback__form_number {
+    outline: none;
+    border: none;
+    margin-top: 0;
+    font-family: Orbitron;
+    font-size: 1.3rem;
+    cursor: pointer;
+}
+
+.feedback__form_number:focus {
+    box-shadow: 0 0 10px rgba(0,0,0,0.5);
+}
+
+.feedback__form_button {
+    background: chartreuse;
+    color: white;
+    border: none;
+    box-shadow: 0 0 10px rgba(0,0,0,0.5);
+    font-family: Orbitron;
+    font-weight: bold;
+    font-size: 1.5rem;
+    padding: 0.5rem;
+    cursor: pointer;
+    transition: 0.5s ease-out;
+}
+
+.feedback__form_button:hover {
+    background: blue;
+}
+
+/* IN/VALID STYLES */
+.span__message {
+    font-family: Roboto;
+    font-size: 1rem;
+    position: absolute;
+    animation: 1s spanAnimation;
+}
+
+@keyframes spanAnimation {
+    0% {
+        color: white;
+    }
+
+    100% {
+        color: chartreuse;
+    }
+}
+
+/* FOOTER BLOCK */
+.footer__wrapper {
+    color: chartreuse;
+}
